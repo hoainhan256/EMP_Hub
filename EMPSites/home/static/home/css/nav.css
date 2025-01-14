@@ -1,0 +1,243 @@
+/* Đặt một số thuộc tính chung cho body */
+html,body {
+    font-family: Arial, sans-serif;
+   
+    padding: 0;
+    background-color: #e6e6e6;
+    height: 100%;
+    margin: 0;  /* Loại bỏ khoảng cách mặc định */
+    display: flex;
+    flex-direction: column;/* Phân chia không gian thành 2 phần: nội dung và footer */
+    
+}
+
+/* Điều chỉnh thanh điều hướng */
+.navbar {
+    height: 150px; /* Chiều cao của thanh điều hướng */
+    display: flex; /* Căn chỉnh các thành phần ngang hàng */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    justify-content: space-between; /* Tách logo và menu/form tìm kiếm về hai phía */
+    padding: 0px 0px; /* Khoảng cách xung quanh thanh điều hướng */
+    background-color: #f8f9fa; /* Màu nền nhẹ nhàng */
+    border-bottom: 1px solid #ddd; /* Đường viền dưới thanh điều hướng */
+    padding: 0; /* Loại bỏ padding mặc định */
+}
+
+/* Logo */
+
+.navbar-logo {
+    height: 100%; /* Logo khớp với chiều cao thanh điều hướng */
+    width: auto; /* Giữ tỷ lệ */
+    margin-right: 0px; /* Khoảng cách giữa logo và menu */
+}
+
+
+
+/* Danh sách menu */
+.navbar-nav {
+    display: flex; /* Đặt các mục trong danh sách ngang hàng */
+  
+    gap: 0px; /* Khoảng cách giữa các nút */
+   
+  
+    list-style: none; /* Loại bỏ dấu chấm trong danh sách */
+   margin-right: 379px;
+    padding: 0;
+}
+/* Điều chỉnh nút trong thẻ li */
+.navbar-nav .nav-item a {
+    text-decoration: none; /* Loại bỏ gạch chân */
+    color: #000; /* Màu chữ */
+    font-size: 30px; /* Kích thước chữ */
+    font-weight: bold; /* Độ đậm của chữ */
+    padding: 60px 60px; /* Kích thước vùng bấm: tạo không gian bên trong */
+    border-radius: 4px; /* Bo tròn các góc của nút */
+    transition: all 0.3s ease; /* Hiệu ứng mượt khi hover */
+}
+/* Mục trong danh sách */
+
+
+
+
+/* Hiệu ứng hover */
+.nav-item .nav-link:hover {
+    background-color: #007bff; /* Màu nền khi hover */
+    color: #fff; /* Màu chữ khi hover */
+    border-radius: 4px; /* Bo góc nhẹ */
+}
+
+/* Dropdown menu */
+.nav-item.dropdown .dropdown-menu {
+    display: none; /* Ẩn menu mặc định */
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Hiển thị menu khi hover */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Form tìm kiếm */
+form.d-flex {
+    display: flex; /* Sử dụng Flexbox để ghép ô tìm kiếm và nút thành 1 hàng */
+    align-items: stretch;
+    border: 5px solid #ddd; /* Đường viền khung */
+    border-radius: 25px; /* Bo góc nhẹ */
+    overflow: hidden; /* Ẩn nội dung vượt ra ngoài khung */
+    width: 400px; /* Độ rộng tổng của form */
+    margin-left: auto;
+
+}
+
+/* Ô nhập văn bản */
+form.d-flex input {
+    flex: 1 ; /* Chiếm toàn bộ không gian còn lại */
+    border: none; /* Loại bỏ viền */
+    padding: 8px; /* Khoảng cách bên trong */
+    outline: none; /* Loại bỏ viền xanh khi focus */
+}
+
+/* Nút tìm kiếm */
+form.d-flex button {
+    border: none; /* Loại bỏ viền nút */
+    background-color: #d4d1d1e1; /* Màu nền nút */
+    color: rgb(0, 0, 0); /* Màu chữ */
+    padding: 20px 24px; /* Khoảng cách bên trong nút */
+    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    transition: background-color 0.3s ease; /* Hiệu ứng hover */
+}
+
+/* Hiệu ứng khi hover nút */
+form.d-flex button:hover {
+    background-color: #3b3939; /* Màu nền khi hover */
+    color: rgb(236, 220, 220);
+}
+
+
+
+/* Thiết lập cho các phần tử dropdown */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    min-width: 160px;
+}
+
+
+.main-content{
+    flex: 1;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #646363;
+    color: white;
+    text-align: center;
+    padding: 15px;  
+}
+/* Ẩn dropdown menu mặc định */
+.nav-item.dropdown .dropdown-menu {
+    display: none; /* Ẩn dropdown */
+}
+
+/* Hiển thị dropdown khi hover vào phần tử cha */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Hiển thị dropdown */
+}
+
+/* Thiết lập kiểu dáng cho dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    min-width: 160px;
+    box-shadow: 0 10px 16px rgba(0,0,0,0.2);
+    z-index: 1; /* Đảm bảo dropdown luôn ở trên các phần tử khác */
+}
+/* Thiết lập mặc định cho các liên kết trong thẻ li */
+.nav-item .nav-link {
+    text-decoration: none; /* Xóa gạch chân */
+    color: #000; /* Màu chữ mặc định */
+    padding: 8px 12px; /* Tạo khoảng cách bên trong để làm nút dễ nhấn */
+    display: inline-block; /* Đảm bảo kích thước bao quanh nội dung */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Hiệu ứng mượt khi thay đổi */
+}
+
+/* Xóa dấu chấm trong danh sách */
+.nav-item {
+    list-style-type: none; /* Loại bỏ dấu chấm của thẻ li */
+}
+
+/* Hiệu ứng khi trỏ chuột vào nút */
+.nav-item .nav-link:hover {
+    background-color: #007bff; /* Màu nền khi hover (ví dụ: xanh dương) */
+    color: #fff; /* Màu chữ khi hover */
+    border-radius: 4px; /* Làm nút bo tròn góc */
+    text-decoration: none; /* Đảm bảo không có gạch chân */
+}
+/* Thiết lập cho các phần tử dropdown */
+.nav-item.dropdown {
+    position: relative; /* Đảm bảo menu dropdown có thể được đặt vị trí tuyệt đối */
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    display: none; /* Ẩn menu mặc định */
+    position: absolute;
+    top: 100%; /* Đảm bảo menu xuất hiện dưới phần tử dropdown */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Thêm bóng đổ */
+    z-index: 1; /* Đảm bảo menu hiện lên trên các phần tử khác */
+    margin: 0; /* Loại bỏ margin */
+    padding: 0; /* Loại bỏ padding */
+}
+
+/* Các mục con trong dropdown */
+.nav-item.dropdown .dropdown-menu li {
+    list-style-type: none; /* Loại bỏ dấu chấm mặc định */
+    margin: 0;
+    padding: 10px 20px; /* Tạo khoảng cách giữa các mục */
+    border-bottom: 1px solid #ddd; /* Viền dưới mỗi mục */
+}
+
+/* Xóa viền dưới cho mục cuối cùng */
+.nav-item.dropdown .dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+/* Hiệu ứng hover */
+.nav-item.dropdown .dropdown-menu li:hover {
+    background-color: #007bff; /* Màu nền khi hover */
+    color: #fff; /* Màu chữ khi hover */
+    cursor: pointer; /* Đổi con trỏ chuột khi hover */
+}
+
+/* Hiển thị dropdown khi hover vào phần tử cha */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Hiển thị dropdown */
+}
+
+/* Đảm bảo các liên kết trong menu dropdown không có gạch chân */
+.nav-item.dropdown .dropdown-menu a {
+    text-decoration: none; /* Xóa gạch chân */
+    color: inherit; /* Giữ màu chữ mặc định */
+    padding: 5px 10px; /* Khoảng cách giữa các mục con */
+    display: block; /* Đảm bảo liên kết chiếm toàn bộ chiều rộng của item */
+}
+
+/* Hiệu ứng khi trỏ chuột vào mục con */
+.nav-item.dropdown .dropdown-menu a:hover {
+    background-color: #007bff; /* Màu nền khi hover */
+    color: white; /* Màu chữ khi hover */
+}
