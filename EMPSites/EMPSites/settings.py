@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'log_sign',
     'home',
+    'EventReg',
 ]
 
 MIDDLEWARE = [
