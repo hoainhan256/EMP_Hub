@@ -1,5 +1,4 @@
 {% extends "master.html" %}
-
 {% block Content %}
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row justify-content-center">
@@ -8,7 +7,8 @@
             <div class="card mb-6">
                 <h5 class="card-header">Event Registration</h5>
                 <div class="card-body">
-                    <form method="POST" action="/submit-registration" enctype="multipart/form-data">
+                    <form method="POST" action="{% url 'submit_registration' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
                         <!-- Full Name -->
                         <div class="mb-3">
                             <label for="full-name" class="form-label">Full Name</label>
@@ -106,15 +106,6 @@
                                 <option value="momo">Momo</option>
                                 <option value="credit_card">Credit Card</option>
                             </select>
-                        </div>
-                        <!-- File Upload -->
-                        <div class="mb-3">
-                            <label for="file-upload" class="form-label">Upload Supporting Document (Optional)</label>
-                            <input 
-                                type="file" 
-                                class="form-control" 
-                                id="file-upload" 
-                                name="supporting_file">
                         </div>
                         <!-- Submit Button -->
                         <button type="submit" class="btn btn-primary">Register</button>
