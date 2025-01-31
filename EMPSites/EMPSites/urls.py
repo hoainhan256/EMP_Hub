@@ -20,7 +20,10 @@ urlpatterns = [
    
     path('', include('log_sign.urls')),
     path('', include('EventCreate.urls')),
-    
+
     path('admin/', admin.site.urls),
+
     path('', include('home.urls')),
+
+    path('EventReg/', include('EventReg.urls')),
 ]

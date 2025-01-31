@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'log_sign',
     'home',
+    'EventReg',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'tumakiss2005a@gmail.com'  # Email gửi
+EMAIL_HOST_PASSWORD = 'mnao uajy ewsi ygog'  # Mật khẩu ứng dụng (App Password)
+
