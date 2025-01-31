@@ -241,3 +241,144 @@ form.d-flex button:hover {
     background-color: #007bff; /* Màu nền khi hover */
     color: white; /* Màu chữ khi hover */
 }
+/* Đặt một số thuộc tính chung cho body */
+html, body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-color: #e6e6e6;
+    height: 100%;
+    margin: 0;  /* Loại bỏ khoảng cách mặc định */
+    display: flex;
+    flex-direction: column; /* Phân chia không gian thành 2 phần: nội dung và footer */
+    font-size: 16px; /* Đặt font-size cơ bản */
+}
+
+/* Điều chỉnh thanh điều hướng */
+.navbar {
+    height: 10vh; /* Chiều cao thanh điều hướng thay vì px */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vw; /* Sử dụng đơn vị vw cho padding */
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Logo */
+.navbar-logo {
+    height: 100%; 
+    width: auto;
+    margin-right: 1rem; /* Đặt margin bằng rem */
+}
+
+/* Danh sách menu */
+.navbar-nav {
+    display: flex;
+    gap: 2vw; /* Khoảng cách giữa các nút bằng vw */
+    list-style: none;
+    padding: 0;
+    margin-right: 5vw; /* Margin phải có thể thay đổi theo kích thước màn hình */
+}
+
+/* Điều chỉnh nút trong thẻ li */
+.navbar-nav .nav-item a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5rem; /* Sử dụng rem thay cho px */
+    font-weight: bold;
+    padding: 1rem 2rem; /* Padding sử dụng rem */
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Mục trong danh sách */
+.nav-item .nav-link:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* Form tìm kiếm */
+form.d-flex {
+    display: flex;
+    align-items: stretch;
+    border: 5px solid #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 30vw; /* Sử dụng vw cho độ rộng */
+    margin-left: auto;
+}
+
+/* Ô nhập văn bản */
+form.d-flex input {
+    flex: 1;
+    border: none;
+    padding: 0.5rem; /* Padding dùng rem */
+    outline: none;
+}
+
+/* Nút tìm kiếm */
+form.d-flex button {
+    border: none;
+    background-color: #d4d1d1e1;
+    color: rgb(0, 0, 0);
+    padding: 1rem; /* Padding dùng rem */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Footer */
+.footer {
+    background-color: #646363;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem; /* Thêm kích thước chữ cho footer */
+}
+
+/* Responsive: điều chỉnh cho các màn hình nhỏ */
+@media (max-width: 768px) {
+    /* Điều chỉnh thanh điều hướng */
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+    
+    /* Danh sách menu */
+    .navbar-nav {
+        flex-direction: column;
+        margin-right: 0;
+    }
+
+    /* Form tìm kiếm */
+    form.d-flex {
+        width: 80vw; /* Mở rộng form cho các màn hình nhỏ */
+    }
+
+    /* Điều chỉnh kích thước chữ và padding */
+    .navbar-nav .nav-item a {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    .footer {
+        font-size: 0.9rem; /* Giảm kích thước chữ cho footer trên màn hình nhỏ */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-nav .nav-item a {
+        font-size: 1rem; /* Giảm font-size cho màn hình rất nhỏ */
+        padding: 0.8rem;
+    }
+
+    /* Điều chỉnh chiều rộng form tìm kiếm */
+    form.d-flex {
+        width: 90vw;
+    }
+
+    .footer {
+        font-size: 0.8rem; /* Footer nhỏ hơn trên màn hình rất nhỏ */
+    }
+}
