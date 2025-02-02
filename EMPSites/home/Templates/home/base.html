@@ -43,11 +43,12 @@
     <body>
       <!--Header-->
      
-              
+    <div class="container">
       <nav class="navbar">
+         <!-- Logo -->
         <img src="{% static 'home/logo/favicon.png'%}" width="60" height="60" class="navbar-logo" alt="Logo" />
           <div class="container-fluid">
-              <!-- Logo -->
+             
              
               <!-- Menu -->
               <ul class="navbar-nav">
@@ -71,22 +72,32 @@
                       <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                   </li>
               </ul>
-            </div>
               <div class="form">
-              <!-- Search Form -->
-              <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-          </div>
+                <!-- Search Form -->
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+           
+          <div class="userItems">
+            <!-- Search Form -->
+            <form class="user">
+                <a class="loginButton" aria-current="page" href="login">Login</a>
+                <a class="registButton" aria-current="page" href="register">Sign up</a>
+            </form>
+        </div>
       </nav>
-      
+        <div class="logoutItem">
+            <a class="logoutnButton" aria-current="page" href="logout">Logout</a>
+        </div>
       <!--Main body-->
 
      <div class="main-content">
         {% block main-content %} {% endblock main-content %}
     </div>
-      
+</div>
       <!--footer-->
       <footer class="footer" >
           copyright 2025
