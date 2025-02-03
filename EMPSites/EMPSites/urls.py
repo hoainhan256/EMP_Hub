@@ -25,5 +25,5 @@ urlpatterns = [
 
     path('', include('home.urls')),
 
-    #path('EventReg/', include('EventReg.urls')),
+    # path('EventReg/', include('EventReg.urls')),
 ]
