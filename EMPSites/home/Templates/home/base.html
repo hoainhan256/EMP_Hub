@@ -42,8 +42,7 @@
     </head>
     <body>
       <!--Header-->
-     
-    <div class="container">
+<div class="container">
       <nav class="navbar">
          <!-- Logo -->
         <img src="{% static 'home/logo/favicon.png'%}" width="60" height="60" class="navbar-logo" alt="Logo" />
@@ -56,7 +55,7 @@
                       <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">List Event</a>
+                      <a class="nav-link" href="#">List Event<width ="60"></a>
                   </li>
                   <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,24 +79,38 @@
                 </form>
               </div>
             </div>
-           
-          <div class="userItems">
-            <!-- Search Form -->
-            <form class="user">
-                <a class="loginButton" aria-current="page" href="login">Login</a>
-                <a class="registButton" aria-current="page" href="register">Sign up</a>
-            </form>
-        </div>
+            
+        <ul class="accountItem">
+            <li class ="account-d"> 
+                <div class="userItems">
+                    {% if not request.user.is_authenticated %}
+                <form class="user">
+                    <a class="loginButton" aria-current="page" href="login">Login</a>
+                    <a class="registButton" aria-current="page" href="register">Sign up</a>
+                 </form>
+                 {% endif %}
+                </div>
+            </li>
+        </ul>
       </nav>
-        <div class="logoutItem">
-            <a class="logoutnButton" aria-current="page" href="logout">Logout</a>
-        </div>
+      
+    <div class="logoutItem">
+            
+        <ul class="logoutUl">
+            <li class ="account-out"> 
+                <form class="out">
+                     <a class="logoutnButton" aria-current="page" href="logout">Logout</a>
+
+                </form>
+            </li>
+        </ul>
+    </div>
+</div> 
       <!--Main body-->
 
-     <div class="main-content">
+    <div class="main-content">
         {% block main-content %} {% endblock main-content %}
     </div>
-</div>
       <!--footer-->
       <footer class="footer" >
           copyright 2025

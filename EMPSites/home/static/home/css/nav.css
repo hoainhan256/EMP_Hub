@@ -14,6 +14,7 @@ html,body {
 /* Điều chỉnh thanh điều hướng */
 .navbar {
     height: 150px; /* Chiều cao của thanh điều hướng */
+    width: auto;
     display: flex; /* Căn chỉnh các thành phần ngang hàng */
     align-items: center; /* Canh giữa theo chiều dọc */
     justify-content: space-between; /* Tách logo và menu/form tìm kiếm về hai phía */
@@ -49,7 +50,7 @@ html,body {
     color: #000; /* Màu chữ */
     font-size: 30px; /* Kích thước chữ */
     font-weight: bold; /* Độ đậm của chữ */
-    padding: 60px 60px; /* Kích thước vùng bấm: tạo không gian bên trong */
+    padding: 92px 60px; /* Kích thước vùng bấm: tạo không gian bên trong */
     border-radius: 4px; /* Bo tròn các góc của nút */
     transition: all 0.3s ease; /* Hiệu ứng mượt khi hover */
 }
@@ -162,13 +163,7 @@ form.d-flex button:hover {
     z-index: 1; /* Đảm bảo dropdown luôn ở trên các phần tử khác */
 }
 /* Thiết lập mặc định cho các liên kết trong thẻ li */
-.nav-item .nav-link {
-    text-decoration: none; /* Xóa gạch chân */
-    color: #000; /* Màu chữ mặc định */
-    padding: 8px 12px; /* Tạo khoảng cách bên trong để làm nút dễ nhấn */
-    display: inline-block; /* Đảm bảo kích thước bao quanh nội dung */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Hiệu ứng mượt khi thay đổi */
-}
+
 
 /* Xóa dấu chấm trong danh sách */
 .nav-item {
@@ -241,3 +236,76 @@ form.d-flex button:hover {
     color: white; /* Màu chữ khi hover */
 }
 /* Đặt một số thuộc tính chung cho body */
+
+
+/* account item */
+.accountItem
+{
+    display: flex;
+    flex-direction: row-reverse; /* Đặt các mục trong danh sách ngang hàng */
+    gap: 100px; /* Khoảng cách giữa các nút */
+   
+  
+    list-style: none; /* Loại bỏ dấu chấm trong danh sách */
+   
+    padding: 0;
+}
+.accountItem .account-d a
+{
+    text-decoration: none; /* Loại bỏ gạch chân */
+    color: #000; /* Màu chữ */
+    font-size: 20px; /* Kích thước chữ */
+    font-weight: normal; /* Độ đậm của chữ */
+    padding: 10px 10px; /* Kích thước vùng bấm: tạo không gian bên trong */
+    right: auto;
+    transition: all 0.3s ease; /* Hiệu ứng mượt khi hover */
+    width: 100px;
+    height: 120px;
+}
+a .loginButton
+{
+    width: 100px;
+    height: 120px;
+}
+a .loginButton
+{
+    width: 100px;
+    height: 120px;
+}
+.loginButton:hover {
+    background-color: #3c4753; /* Màu nền khi hover */
+    color: #fff; /* Màu chữ khi hover */
+    
+}
+.registButton:hover {
+    background-color: #3c4753; /* Màu nền khi hover */
+    color: #fff; /* Màu chữ khi hover */
+    
+}
+
+
+.logoutUl
+{
+    display: flex;
+    flex-direction: row-reverse; /* Đặt các mục trong danh sách ngang hàng */
+    gap: 100px; /* Khoảng cách giữa các nút */
+   
+  
+    list-style: none; /* Loại bỏ dấu chấm trong danh sách */
+   
+    padding: 0;
+}
+.logoutUl .account-out a
+{
+    color: #0b3199; /* Màu chữ */
+    font-size: 20px; /* Kích thước chữ */
+    font-weight: 100; /* Độ đậm của chữ */
+    right: auto;
+}
+
+
+
+@media only screen and (min-width: 65em) and (max-width: 48em)
+{
+
+}
