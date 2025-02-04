@@ -1,7 +1,15 @@
 {% extends 'home/base.html' %}
 {% load static %}
 {% block main-content %}
-<h4>
-    Content goes here...
-</h4>
+<h1>Danh sách Sự kiện</h1>
+    
+    {% comment %} {% if events %}
+        <ul>
+        {% for event in events %}
+            <li>{{ event.title }} - {{ event.date }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Không có sự kiện nào.</p>
+    {% endif %} {% endcomment %}
 {% endblock main-content %}

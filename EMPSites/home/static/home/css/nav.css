@@ -245,10 +245,10 @@ form.d-flex button:hover {
     flex-direction: row-reverse; /* Đặt các mục trong danh sách ngang hàng */
     gap: 100px; /* Khoảng cách giữa các nút */
    
-  
+    right: auto;
     list-style: none; /* Loại bỏ dấu chấm trong danh sách */
-   
-    padding: 0;
+    padding: 10px;
+    
 }
 .accountItem .account-d a
 {
@@ -257,21 +257,12 @@ form.d-flex button:hover {
     font-size: 20px; /* Kích thước chữ */
     font-weight: normal; /* Độ đậm của chữ */
     padding: 10px 10px; /* Kích thước vùng bấm: tạo không gian bên trong */
-    right: auto;
+    
     transition: all 0.3s ease; /* Hiệu ứng mượt khi hover */
     width: 100px;
     height: 120px;
 }
-a .loginButton
-{
-    width: 100px;
-    height: 120px;
-}
-a .loginButton
-{
-    width: 100px;
-    height: 120px;
-}
+
 .loginButton:hover {
     background-color: #3c4753; /* Màu nền khi hover */
     color: #fff; /* Màu chữ khi hover */

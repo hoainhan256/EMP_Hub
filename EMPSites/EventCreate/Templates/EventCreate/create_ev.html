@@ -1,0 +1,34 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block main-content %}
+<h1>Tạo sự kiện</h1>
+<div class="form-container">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">Title</label>
+        {{ form.title }}  <!-- Render trường title -->
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.description.id_for_label }}">Description</label>
+        {{ form.description }}  <!-- Render trường description -->
+    </div>
+   
+
+    <div class="form-group">
+        <label for="{{ form.date.id_for_label }}">Date</label>
+        {{ form.date }}  <!-- Render trường date -->
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.image.id_for_label }}">Image</label>
+        {{ form.image }}  <!-- Render trường image -->
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Tạo sự kiện</button>
+</form>
+</div>
+{% endblock main-content %}

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'log_sign',
     'home',
     'EventReg',
+    'EventCreate',
 ]
 
 MIDDLEWARE = [
@@ -54,8 +55,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-
+import os
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ROOT_URLCONF = 'EMPSites.urls'
 
 TEMPLATES = [

@@ -32,6 +32,9 @@
 .col-md-10col-lg-6col-xl-5order-2order-lg-1
     {
         display: flex;
-  justify-content: center; /* Căn giữa theo chiều ngang */
+     justify-content: center; /* Căn giữa theo chiều ngang */
     }
-    
+    .col-lg-12col-xl-11{
+        display: flex;
+     justify-content: center; /* Căn giữa theo chiều ngang */
+    }

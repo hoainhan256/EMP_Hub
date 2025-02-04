@@ -12,16 +12,65 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'log_sign/css/style.css' %}"/>
+        <link href="{% static 'home/css/nav.css' %}" rel ="stylesheet"/> 
     </head>
     <body>
+      <div class="container">
+        <nav class="navbar">
+           <!-- Logo -->
+          <img src="{% static 'home/logo/favicon.png'%}" width="60" height="60" class="navbar-logo" alt="Logo" />
+            <div class="container-fluid">
+               
+               
+                <!-- Menu -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">List Event<width ="60"></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Create Event</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+               
+              </div>
+              
+          <ul class="accountItem">
+              <li class ="account-d"> 
+                  <div class="userItems">
+                      {% if not request.user.is_authenticated %}
+                  <form class="user">
+                    <a class="loginButton" aria-current="page" href= {% url "login" %}>Login</a>
+                    <a class="registButton" aria-current="page" href= {% url "register" %}>Register</a>
+                   </form>
+                   {% endif %}
+                  </div>
+              </li>
+          </ul>
+        </nav>
+        
+    
+    </div> 
         <section class="vh-100" style="background-color: #eee;">
             <div class="container h-100">
               <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-lg-12 col-xl-11">
+                <div class="col-lg-12col-xl-11">
                   <div class="card text-black" style="border-radius: 25px;">
                     <div class="card-body p-md-5">
                       <div class="row justify-content-center">
-                        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                        <div class="col-md-10col-lg-6col-xl-5order-2order-lg-1">
           
                           <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
           
