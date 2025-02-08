@@ -1,0 +1,11 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block main-content %}
+<h2>{{ event.title }}</h2>
+<img src="{{ event.image.url }}" alt="{{ event.title }}" class="event-image">
+<p><strong>Ngày:</strong> {{ event.date }}</p>
+<p><strong>Địa điểm:</strong> {{ event.location }}</p>
+<p><strong>Người tổ chức:</strong> {{ event.organizer.username }}</p>
+<p>{{ event.description }}</p>
+
+{% endblock main-content %}

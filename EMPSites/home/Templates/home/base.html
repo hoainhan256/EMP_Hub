@@ -63,7 +63,7 @@
                           Dropdown
                       </a>
                       <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="create_ev">Create Event</a></li>
+                          <li><a class="dropdown-item" href="{% url "create_ev" %}">Create Event</a></li>
                           <li><a class="dropdown-item" href="#">Another action</a></li>
                           <li><a class="dropdown-item" href="#">Something else here</a></li>
                       </ul>
@@ -99,6 +99,7 @@
             
         <ul class="logoutUl">
             <li class ="account-out"> 
+                <span> hi! {{request.user}} </span>
                 <form class="out">
                      <a class="logoutnButton" aria-current="page" href="{% url "logout" %}">Logout</a>
 
