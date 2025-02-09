@@ -2,65 +2,38 @@
 {% block Content %}
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row justify-content-center">
-        <div class="col-xl-8 col-lg-10 col-md-12">
+        <div class="col-xl-6 col-lg-8 col-md-10">
             <!-- Event Registration Form -->
-            <div class="card mb-6">
+            <div class="card">
                 <h5 class="card-header">Event Registration</h5>
                 <div class="card-body">
-                    <form method="POST" action="{% url 'submit_registration' %}" enctype="multipart/form-data">
+                    <form method="POST" action="{% url 'submit_registration' %}">
                         {% csrf_token %}
                         <!-- Full Name -->
                         <div class="mb-3">
-                            <label for="full-name" class="form-label">Full Name</label>
-                            <input 
-                                type="text" 
-                                class="form-control" 
-                                id="full-name" 
-                                name="full_name" 
-                                placeholder="Enter your full name" 
-                                required>
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" name="name" required 
+                            placeholder="Enter your full name">
                         </div>
                         <!-- Email -->
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input 
-                                type="email" 
-                                class="form-control" 
-                                id="email" 
-                                name="email" 
-                                placeholder="Enter your email" 
-                                required>
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" required placeholder="YourEmail@gmail.com">
+                        </div>
+                        <!--Adress-->
+                        <div class="mb-3">
+                            <label class="form-label">Adress</label>
+                            <input type="email" class="form-control" name="adress" required placeholder="Enter your address">
                         </div>
                         <!-- Phone -->
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone</label>
-                            <input 
-                                type="tel" 
-                                class="form-control" 
-                                id="phone" 
-                                name="phone" 
-                                placeholder="Enter your phone number" 
-                                required>
-                        </div>
-                        <!-- Address -->
-                        <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <input 
-                                type="text" 
-                                class="form-control" 
-                                id="address" 
-                                name="address" 
-                                placeholder="Enter your address" 
-                                required>
+                            <label class="form-label">Phone</label>
+                            <input type="tel" class="form-control" name="phone" required placeholder="0123456789">
                         </div>
                         <!-- Role -->
                         <div class="mb-3">
-                            <label for="role" class="form-label">Your Role</label>
-                            <select 
-                                class="form-select" 
-                                id="role" 
-                                name="role" 
-                                required>
+                            <label class="form-label">Your Role</label>
+                            <select class="form-select" name="role" required>
                                 <option value="">Select your role</option>
                                 <option value="student">Student</option>
                                 <option value="faculty">Faculty</option>
@@ -68,38 +41,10 @@
                                 <option value="guest">Guest</option>
                             </select>
                         </div>
-                        <!-- Event Selection -->
-                        <div class="mb-3">
-                            <label for="event-selection" class="form-label">Event</label>
-                            <select 
-                                class="form-select" 
-                                id="event-selection" 
-                                name="event" 
-                                required>
-                                <option value="">Select an event</option>
-                                <option value="seminar">Seminar</option>
-                                <option value="workshop">Workshop</option>
-                                <option value="startup_competition">Startup Competition</option>
-                            </select>
-                        </div>
-                        <!-- Event Date -->
-                        <div class="mb-3">
-                            <label for="event-date" class="form-label">Event Date</label>
-                            <input 
-                                type="date" 
-                                class="form-control" 
-                                id="event-date" 
-                                name="event_date" 
-                                required>
-                        </div>
                         <!-- Payment -->
                         <div class="mb-3">
-                            <label for="payment-method" class="form-label">Payment Method</label>
-                            <select 
-                                class="form-select" 
-                                id="payment-method" 
-                                name="payment_method" 
-                                required>
+                            <label class="form-label">Payment Method</label>
+                            <select class="form-select" name="payment_method" required>
                                 <option value="">Select payment method</option>
                                 <option value="free">Free</option>
                                 <option value="vnpay">VNPay</option>
