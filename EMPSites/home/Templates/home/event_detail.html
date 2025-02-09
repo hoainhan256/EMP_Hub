@@ -7,5 +7,15 @@
 <p><strong>Địa điểm:</strong> {{ event.location }}</p>
 <p><strong>Người tổ chức:</strong> {{ event.organizer.username }}</p>
 <p>{{ event.description }}</p>
+<link href="{% static 'home/css/event.css' %}" rel ="stylesheet"/>
+    <div class="event-container">
+            <div class="event-card">
+                <div class="event-details">
+                    <a href="{% url 'form_reg' %}" class="btn">Đăng ký</a> 
+                </div>
+            </div>
+    </div>
+
+
 
 {% endblock main-content %}

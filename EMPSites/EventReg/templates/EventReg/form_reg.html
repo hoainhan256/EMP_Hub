@@ -4,36 +4,41 @@
     <div class="row justify-content-center">
         <div class="col-xl-6 col-lg-8 col-md-10">
             <!-- Event Registration Form -->
-            <div class="card">
-                <h5 class="card-header">Event Registration</h5>
-                <div class="card-body">
+            <div class="card shadow-lg rounded-3 border-0 fade-in">
+                <h5 class="card-header text-center bg-primary text-white rounded-top-3">
+                    Event Registration
+                </h5>
+                <div class="card-body p-4">
                     <form method="POST" action="{% url 'submit_registration' %}">
                         {% csrf_token %}
                         <!-- Full Name -->
                         <div class="mb-3">
-                            <label class="form-label">Full Name</label>
-                            <input type="text" class="form-control" name="name" required 
+                            <label class="form-label fw-bold">Full Name</label>
+                            <input type="text" class="form-control rounded-2" name="name" required 
                             placeholder="Enter your full name">
                         </div>
                         <!-- Email -->
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" name="email" required placeholder="YourEmail@gmail.com">
+                            <label class="form-label fw-bold">Email</label>
+                            <input type="email" class="form-control rounded-2" name="email" required 
+                            placeholder="example@gmail.com">
                         </div>
-                        <!--Adress-->
+                        <!-- Address -->
                         <div class="mb-3">
-                            <label class="form-label">Adress</label>
-                            <input type="email" class="form-control" name="adress" required placeholder="Enter your address">
+                            <label class="form-label fw-bold">Address</label>
+                            <input type="text" class="form-control rounded-2" name="address" required 
+                            placeholder="Enter your address">
                         </div>
                         <!-- Phone -->
                         <div class="mb-3">
-                            <label class="form-label">Phone</label>
-                            <input type="tel" class="form-control" name="phone" required placeholder="0123456789">
+                            <label class="form-label fw-bold">Phone</label>
+                            <input type="tel" class="form-control rounded-2" name="phone" required 
+                            placeholder="0123-456-789">
                         </div>
                         <!-- Role -->
                         <div class="mb-3">
-                            <label class="form-label">Your Role</label>
-                            <select class="form-select" name="role" required>
+                            <label class="form-label fw-bold">Your Role</label>
+                            <select class="form-select rounded-2" name="role" required>
                                 <option value="">Select your role</option>
                                 <option value="student">Student</option>
                                 <option value="faculty">Faculty</option>
@@ -43,8 +48,8 @@
                         </div>
                         <!-- Payment -->
                         <div class="mb-3">
-                            <label class="form-label">Payment Method</label>
-                            <select class="form-select" name="payment_method" required>
+                            <label class="form-label fw-bold">Payment Method</label>
+                            <select class="form-select rounded-2" name="payment_method" required>
                                 <option value="">Select payment method</option>
                                 <option value="free">Free</option>
                                 <option value="vnpay">VNPay</option>
@@ -53,11 +58,43 @@
                             </select>
                         </div>
                         <!-- Submit Button -->
-                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" class="btn btn-primary w-100 rounded-2 shadow-sm fw-bold btn-hover">
+                            Register
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<style>
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .btn-hover:hover {
+        transform: scale(1.05);
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        transition: all 0.3s ease-in-out;
+    }
+</style>
+
 {% endblock %}

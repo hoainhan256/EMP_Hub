@@ -13,7 +13,7 @@ def form_reg(request):
 def submit_registration(request):
     if request.method == 'POST':
         # Lấy dữ liệu từ form
-        full_name = request.POST.get('full_name')
+        name = request.POST.get('name')
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         address = request.POST.get('address')
@@ -21,7 +21,7 @@ def submit_registration(request):
     
 
         # Tạo nội dung QR code
-        qr_data = f"Name: {full_name}\nEmail: {email}\nPhone: {phone}"
+        qr_data = f"Name: {name}\nEmail: {email}\nPhone: {phone}"
         
         # Tạo mã QR
         qr = qrcode.make(qr_data)
@@ -33,7 +33,7 @@ def submit_registration(request):
         try:
             email_message = EmailMessage(
                 subject='Xác nhận đăng ký sự kiện',
-                body=f'Chào {full_name},\n\nCảm ơn bạn đã đăng ký tham gia sự kiện. Vui lòng sử dụng mã QR đính kèm để check-in.\n\nTrân trọng,\nBan tổ chức',
+                body=f'Chào {name},\n\nCảm ơn bạn đã đăng ký tham gia sự kiện. Vui lòng sử dụng mã QR đính kèm để check-in.\n\nTrân trọng,\nBan tổ chức',
                 from_email='tumakiss2005a@gmail.com',
                 to=[email],
             )
@@ -43,6 +43,6 @@ def submit_registration(request):
             print(f"Lỗi khi gửi email: {e}")
             return HttpResponse("Đăng ký thành công nhưng có lỗi khi gửi email xác nhận.")
 
-        return HttpResponse(f"Cảm ơn {full_name} đã đăng ký thành công! Mã QR đã được gửi đến email của bạn.")
+        return HttpResponse(f"Cảm ơn {name} đã đăng ký thành công! Mã QR đã được gửi đến email của bạn.")
     else:
         return HttpResponse("Chỉ hỗ trợ phương thức POST.")
