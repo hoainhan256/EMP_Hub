@@ -18,11 +18,10 @@ def submit_registration(request):
         phone = request.POST.get('phone')
         address = request.POST.get('address')
         role = request.POST.get('role')
-        event = request.POST.get('event')
-        event_date = request.POST.get('event_date')
+    
 
         # Tạo nội dung QR code
-        qr_data = f"Name: {full_name}\nEmail: {email}\nPhone: {phone}\nEvent: {event}\nDate: {event_date}"
+        qr_data = f"Name: {full_name}\nEmail: {email}\nPhone: {phone}"
         
         # Tạo mã QR
         qr = qrcode.make(qr_data)
@@ -34,7 +33,7 @@ def submit_registration(request):
         try:
             email_message = EmailMessage(
                 subject='Xác nhận đăng ký sự kiện',
-                body=f'Chào {full_name},\n\nCảm ơn bạn đã đăng ký tham gia sự kiện {event} vào ngày {event_date}. Vui lòng sử dụng mã QR đính kèm để check-in.\n\nTrân trọng,\nBan tổ chức',
+                body=f'Chào {full_name},\n\nCảm ơn bạn đã đăng ký tham gia sự kiện. Vui lòng sử dụng mã QR đính kèm để check-in.\n\nTrân trọng,\nBan tổ chức',
                 from_email='tumakiss2005a@gmail.com',
                 to=[email],
             )
