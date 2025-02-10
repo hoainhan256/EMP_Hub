@@ -17,6 +17,7 @@
                     <p>{{ event.description|truncatewords:20 }}</p>
                     <a href="{% url 'event_detail' event.id %}" class="btn">Xem chi tiết</a>
                     <a href="{% url 'form_reg' event.id %}" class="btn">Đăng ký</a>
+                    <a href="{% url 'cart'  %}" class="btn">Yêu Thích</a>
                 </div>
             </div>
         {% endfor %}

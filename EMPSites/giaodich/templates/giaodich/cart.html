@@ -1,0 +1,131 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block cart_content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .cart-header a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .cart-header a:hover {
+            background-color: #0056b3;
+        }
+        .cart-summary {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .cart-summary div {
+            font-size: 18px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        table th {
+            background-color: #f4f4f4;
+        }
+        .checkout-btn {
+            text-decoration: none;
+            color: #fff;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            float: right;
+        }
+        .checkout-btn:hover {
+            background-color: #218838;
+        }
+        .quantity-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .quantity-control input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin: 0 5px;
+        }
+        .quantity-control button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .quantity-control button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+	{% csrf_token %}
+    <div class="cart-header">
+        <a href="{% url 'home' %}">&larr; Continue Shopping</a>
+        <a class="checkout-btn" href="{% url 'checkout' %}">Checkout</a>
+    </div>
+
+    <div class="cart-summary">
+        <div>Items: 3</div>
+        <div>Total: <strong>$42</strong></div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Ten su kien</th>
+                <th>dia diem</th>
+                <th>thoi gian</th>
+                <th>nguoi to chuc</th>
+            </tr>
+        </thead>
+		<tbody>
+            <tr>
+                <td>{{ form.title }}</td>
+                <td>{{ form.date }}</td>
+                <td>{{ form.organizer }}</td>
+            </tr>
+            <tr>
+                <td colspan="3">{{ form.description }}</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    {{ form.image }}
+                    <br>
+                    {% if form.instance.image %}
+                        <img src="{{ form.instance.image.url }}" alt="Event Image" width="100">
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+{% endblock cart_content %}

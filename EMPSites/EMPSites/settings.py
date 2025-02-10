@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'home',
     'EventReg',
     'EventCreate',
+    'giaodich',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +89,7 @@ DATABASES = {
         'NAME': 'django_db',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': 'db',  # Tên service MySQL trong docker-compose.yml
+        'HOST': '127.0.0.1',  # Tên service MySQL trong docker-compose.yml
         'PORT': '3306',
     }
 }
@@ -133,6 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
