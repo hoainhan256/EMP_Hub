@@ -5,7 +5,6 @@ from .views import  create_event, event_detail
 
 urlpatterns = [
 
-    path("create_ev/", views.create_event, name="create_ev"), 
-     
+    path("create_ev/", views.create_event, name="create_ev"),  
     
 ]
