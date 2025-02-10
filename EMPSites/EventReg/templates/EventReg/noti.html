@@ -1,0 +1,47 @@
+{% extends "master.html" %}
+
+{% block Content %}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-8 col-md-10">
+            <!-- Thông báo thành công -->
+            <div class="card shadow-lg rounded-3 border-0 fade-in">
+                <h5 class="card-header text-center bg-success text-white rounded-top-3">
+                    Đăng ký thành công!
+                </h5>
+                <div class="card-body p-4">
+                    <p>Chào {{ name }}, bạn đã đăng ký tham gia sự kiện thành công!</p>
+                    <p>Vui lòng sử dụng mã QR dưới đây để check-in tại sự kiện:</p>
+
+                    <!-- Hiển thị mã QR -->
+                    <div class="text-center">
+                        <img src="data:image/png;base64,{{ qr_image_base64 }}" alt="QR Code">
+                    </div>
+
+                    <a href="{% url 'home' %}" class="btn btn-primary w-100 rounded-2 shadow-sm fw-bold">
+                        Quay lại trang chủ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+{% endblock %}

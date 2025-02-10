@@ -1,9 +1,10 @@
 import qrcode
 from io import BytesIO
 from django.core.mail import EmailMessage
-from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
 from .models import Event, EventRegistration
+import base64
 
 # Hiển thị form đăng ký sự kiện
 def form_reg(request, event_id):
@@ -22,7 +23,7 @@ def submit_registration(request):
         event_id = request.POST.get('event_id')  # Lấy ID sự kiện từ form
         
         # Kiểm tra xem có thiếu trường thông tin nào không
-        if not all([name, email, phone, address, role]):
+        if not all([name, email, phone, address, role, event_id]):
             return HttpResponse("Vui lòng điền đầy đủ thông tin.")
 
         # Tạo một đối tượng đăng ký sự kiện và lưu vào cơ sở dữ liệu
@@ -38,13 +39,16 @@ def submit_registration(request):
         registration.save()
 
         # Tạo nội dung QR code
-        qr_data = f"Name: {name}\nEmail: {email}\nPhone: {phone}"
+        qr_data = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nRole: {role}"
         
         # Tạo mã QR
         qr = qrcode.make(qr_data)
         qr_image = BytesIO()
         qr.save(qr_image, format="PNG")
         qr_image.seek(0)
+
+        # Chuyển mã QR thành dữ liệu base64 để gửi lên trang
+        qr_image_base64 = base64.b64encode(qr_image.read()).decode('utf-8')
 
         # Gửi email xác nhận kèm QR code
         try:
@@ -59,8 +63,9 @@ def submit_registration(request):
         except Exception as e:
             print(f"Lỗi khi gửi email: {e}")
             return HttpResponse("Đăng ký thành công nhưng có lỗi khi gửi email xác nhận.")
-        
-        return HttpResponse(f"Cảm ơn {name} đã đăng ký thành công! Mã QR đã được gửi đến email của bạn.")
+
+        # Sau khi đăng ký thành công, chuyển hướng đến trang thông báo với mã QR
+        return render(request, 'EventReg/noti.html', {'name': name, 'qr_image_base64': qr_image_base64})
     
     else:
         return HttpResponse("Chỉ hỗ trợ phương thức POST.")
