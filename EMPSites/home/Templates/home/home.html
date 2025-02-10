@@ -16,7 +16,7 @@
                     <p><strong>Người tổ chức:</strong> {{ event.organizer.username }}</p>
                     <p>{{ event.description|truncatewords:20 }}</p>
                     <a href="{% url 'event_detail' event.id %}" class="btn">Xem chi tiết</a>
-                    <a href="{% url 'form_reg' %}" class="btn">Đăng ký</a> 
+                    <a href="{% url 'form_reg' event.id %}" class="btn">Đăng ký</a>
                 </div>
             </div>
         {% endfor %}

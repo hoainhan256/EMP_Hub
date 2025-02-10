@@ -1,14 +1,15 @@
 import qrcode
 from io import BytesIO
 from django.core.mail import EmailMessage
-from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.shortcuts import render, get_object_or_404
+from .models import Event, EventRegistration
 
 # Hiển thị form đăng ký sự kiện
-def form_reg(request):
-    return render(request, 'EventReg/form_reg.html')
-
+def form_reg(request, event_id):
+    # Lấy sự kiện từ ID
+    event = get_object_or_404(Event, id=event_id)
+    return render(request, 'EventReg/form_reg.html', {'event': event})
 
 def submit_registration(request):
     if request.method == 'POST':
@@ -18,7 +19,23 @@ def submit_registration(request):
         phone = request.POST.get('phone')
         address = request.POST.get('address')
         role = request.POST.get('role')
-    
+        event_id = request.POST.get('event_id')  # Lấy ID sự kiện từ form
+        
+        # Kiểm tra xem có thiếu trường thông tin nào không
+        if not all([name, email, phone, address, role]):
+            return HttpResponse("Vui lòng điền đầy đủ thông tin.")
+
+        # Tạo một đối tượng đăng ký sự kiện và lưu vào cơ sở dữ liệu
+        event = get_object_or_404(Event, id=event_id)
+        registration = EventRegistration(
+            event=event,
+            name=name,
+            email=email,
+            phone=phone,
+            address=address,
+            role=role
+        )
+        registration.save()
 
         # Tạo nội dung QR code
         qr_data = f"Name: {name}\nEmail: {email}\nPhone: {phone}"
@@ -42,7 +59,8 @@ def submit_registration(request):
         except Exception as e:
             print(f"Lỗi khi gửi email: {e}")
             return HttpResponse("Đăng ký thành công nhưng có lỗi khi gửi email xác nhận.")
-
+        
         return HttpResponse(f"Cảm ơn {name} đã đăng ký thành công! Mã QR đã được gửi đến email của bạn.")
+    
     else:
         return HttpResponse("Chỉ hỗ trợ phương thức POST.")

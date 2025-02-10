@@ -46,21 +46,17 @@
                                 <option value="guest">Guest</option>
                             </select>
                         </div>
-                        <!-- Payment -->
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Payment Method</label>
-                            <select class="form-select rounded-2" name="payment_method" required>
-                                <option value="">Select payment method</option>
-                                <option value="free">Free</option>
-                                <option value="vnpay">VNPay</option>
-                                <option value="momo">Momo</option>
-                                <option value="credit_card">Credit Card</option>
-                            </select>
-                        </div>
+                        <input type="hidden" name="event_id" value="{{ event.id }}">
                         <!-- Submit Button -->
-                        <button type="submit" class="btn btn-primary w-100 rounded-2 shadow-sm fw-bold btn-hover">
+                        <button type="submit" class="btn btn-success w-100 rounded-2 shadow-sm fw-bold btn-hover">
                             Register
                         </button>
+                        <a href="{% url 'home' %}" class="btn btn-primary w-100 rounded-2 shadow-sm fw-bold">
+                            Back Home
+                        </a>
+                        
+
+                                          
                     </form>
                 </div>
             </div>
