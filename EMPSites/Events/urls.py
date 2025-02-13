@@ -7,6 +7,6 @@ from .views import (
 
 
 urlpatterns = [
-path('create-category/', EventCategoryCreateView.as_view(), name='create-event-category'),
-path('category-list/', category_list, name='event-category-list'),
+path('create-category/', EventCategoryCreateView.as_view(), name='create_event_category'),
+path('category-list/', category_list, name='event_category_list'),
 ]

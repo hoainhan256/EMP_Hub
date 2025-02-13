@@ -19,7 +19,7 @@ class EventCategory(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('event-category-list')
+        return reverse('event_category_list')
 
 class JobCategory(models.Model):
     name = models.CharField(max_length=255, unique=True)
