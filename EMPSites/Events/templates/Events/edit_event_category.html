@@ -1,0 +1,73 @@
+{% extends 'base/base1.html' %}
+
+{% block main-content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h5>Edit Event Category</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-success" href="{% url 'event_category_list' %}">Category List</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <strong>Errors:</strong>
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    <li>{{ field }}: {{ errors|join:", " }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                            <label for="name">Category Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ form.name.value|default_if_none:'' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="code">Category Code</label>
+                            <input type="text" class="form-control" id="code" name="code" value="{{ form.code.value|default_if_none:'' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Category Image</label>
+                            <input type="file" class="form-control" id="image" name="image">
+                            {% if form.instance.image %}
+                                <img src="{{ form.instance.image.url }}" alt="Current Image" class="img-thumbnail mt-2" width="150">
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="priority">Priority</label>
+                            <input type="number" class="form-control" id="priority" name="priority" value="{{ form.priority.value|default_if_none:'' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select class="form-control" id="status" name="status">
+                                <option value="disabled" {% if form.status.value == "disabled" %}selected{% endif %}>Disabled</option>
+                                <option value="active" {% if form.status.value == "active" %}selected{% endif %}>Active</option>
+                                <option value="deleted" {% if form.status.value == "deleted" %}selected{% endif %}>Deleted</option>
+                                <option value="blocked" {% if form.status.value == "blocked" %}selected{% endif %}>Blocked</option>
+                                <option value="completed" {% if form.status.value == "completed" %}selected{% endif %}>Completed</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main-content %}

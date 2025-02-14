@@ -1,0 +1,24 @@
+{% extends 'base/base1.html' %}
+
+{% block main-content %}
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h5>Confirm Delete</h5>
+            </div>
+            <div class="card-body">
+                {% if object %}
+                    <p>Are you sure you want to delete the category: <strong>{{ object.name }}</strong>?</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <a href="{% url 'event_category_list' %}" class="btn btn-secondary">Cancel</a>
+                    </form>
+                {% else %}
+                    <p class="text-danger">Error: Category not found.</p>
+                    <a href="{% url 'event_category_list' %}" class="btn btn-secondary">Back to List</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
