@@ -1,0 +1,84 @@
+{% extends 'base/base1.html' %}
+{% block main-content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile & Event Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <!-- Bảng hiển thị thông tin người dùng -->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">User Profile</h5>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Full Name</th>
+                        <td>{{request.user}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{user.email }}</td>    
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>{{ phone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>{{ address }}</td>
+                    </tr>
+                    <tr>
+                        <th>Role</th>
+                        <td>{{ role }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bảng hiển thị thông tin sự kiện theo chiều ngang -->
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Event Details</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Image</th>
+                        <th>Thanh Toán</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reg in user_events %}
+                    <tr>
+                    <td>{{ reg.event.title }}</td>
+                    <td>{{ reg.event.description }}</td>
+                    <td>{{ reg.event.date }}</td>
+                    <td>{{ reg.event.location }}</td>
+                    <td><img src="{{ reg.event.image.url }}" width="50"></td>
+                    <td>
+                        <td>
+                            <button class="btn btn-danger">Thanh Toán</button>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">Bạn chưa đăng ký sự kiện nào</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

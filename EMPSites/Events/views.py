@@ -6,9 +6,11 @@ from django.views.generic import (
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
-
+from EventCreate.models import Event
+from EventReg.models import EventRegistration
 from .models import (
     EventCategory,
 )
@@ -50,3 +52,16 @@ class EventCategoryDeleteView(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
         return super().delete(request, *args, **kwargs)
+    
+def profile_view(request):
+    user_registration = EventRegistration.objects.first()  # Lấy bản ghi đầu tiên
+
+    context = {
+        'phone': user_registration.phone if user_registration else '',
+        'address': user_registration.address if user_registration else '',
+        'role': user_registration.role if user_registration else '',
+    }
+    return render(request, 'Events/profile.html', context)
+
+
+   

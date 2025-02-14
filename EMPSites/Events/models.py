@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+from EventCreate.models import Event 
 # Create your models here.
 class EventCategory(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -26,3 +28,4 @@ class JobCategory(models.Model):
 
     def __str__(self):
         return self.name
+
