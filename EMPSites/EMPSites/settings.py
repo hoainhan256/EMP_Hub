@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'EventReg',
     'EventCreate',
     'Events',
-    'crispy_forms'
+    #'crispy_forms'
+    
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
@@ -90,7 +91,7 @@ DATABASES = {
         'NAME': 'django_db',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': '127.0.0.1',  # Tên service MySQL trong docker-compose.yml
+        'HOST': 'db',  # Tên service MySQL trong docker-compose.yml
         'PORT': '3306',
     }
 }
@@ -143,7 +144,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # settings.py
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

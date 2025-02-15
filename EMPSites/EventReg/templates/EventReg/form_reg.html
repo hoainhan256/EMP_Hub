@@ -5,7 +5,7 @@
         <div class="col-xl-6 col-lg-8 col-md-10">
             <!-- Event Registration Form -->
             <div class="card shadow-lg rounded-3 border-0 fade-in">
-                <h5 class="card-header text-center bg-primary text-white rounded-top-3">
+                <h5 class="card-header text-center bg-blue-custom text-white rounded-top-3">
                     Event Registration
                 </h5>
                 <div class="card-body p-4">
@@ -51,7 +51,7 @@
                         <button type="submit" class="btn btn-success w-100 rounded-2 shadow-sm fw-bold btn-hover">
                             Register
                         </button>
-                        <a href="{% url 'home' %}" class="btn btn-primary w-100 rounded-2 shadow-sm fw-bold">
+                        <a href="{% url 'home' %}" class="btn bg-blue-custom w-100 rounded-2 shadow-sm fw-bold">
                             Back Home
                         </a>
                         
@@ -64,6 +64,14 @@
     </div>
 </div>
 <style>
+    .bg-blue-custom:hover {
+        background-color: #0b5ed7;
+        color: white;
+    }
+    .bg-blue-custom {
+        background-color:rgb(24, 131, 246);
+        color: white;
+      }
     .fade-in {
         opacity: 0;
         transform: translateY(30px);
