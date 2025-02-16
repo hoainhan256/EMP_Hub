@@ -29,3 +29,63 @@ class JobCategory(models.Model):
     def __str__(self):
         return self.name
 
+class EventMember(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    attend_status_choice = (
+        ('waiting', 'Waiting'),
+        ('attending', 'Attending'),
+        ('completed', 'Completed'),
+        ('absent', 'Absent'),
+        ('cancelled', 'Cancelled'),
+    )
+    attend_status = models.CharField(choices=attend_status_choice, max_length=10)
+    created_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='eventmember_created_user')
+    updated_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='eventmember_updated_user')
+    created_date = models.DateField(auto_now_add=True)
+    updated_date = models.DateField(auto_now_add=True)
+    status_choice = (
+        ('disabled', 'Disabled'),
+        ('active', 'Active'),
+        ('deleted', 'Deleted'),
+        ('blocked', 'Blocked'),
+        ('completed', 'Completed'),
+    )
+    status = models.CharField(choices=status_choice, max_length=10)
+
+
+    class Meta:
+        unique_together = ['event', 'user']
+
+    def __str__(self):
+        return str(self.user)
+    
+    def get_absolute_url(self):
+        return reverse('join-event-list')
+
+
+class EventUserWishList(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    created_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='eventwishlist_created_user')
+    updated_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='eventwishlist_updated_user')
+    created_date = models.DateField(auto_now_add=True)
+    updated_date = models.DateField(auto_now_add=True)
+    status_choice = (
+        ('disabled', 'Disabled'),
+        ('active', 'Active'),
+        ('deleted', 'Deleted'),
+        ('blocked', 'Blocked'),
+        ('completed', 'Completed'),
+    )
+    status = models.CharField(choices=status_choice, max_length=10)
+
+
+    class Meta:
+        unique_together = ['event', 'user']
+
+    def __str__(self):
+        return str(self.event)
+    
+    def get_absolute_url(self):
+        return reverse('event-wish-list')
