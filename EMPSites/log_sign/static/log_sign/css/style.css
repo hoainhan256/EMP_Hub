@@ -1,40 +1,173 @@
-.gradient-custom-3 {
-    /* fallback for old browsers */
-    background: #84fab0;
-    
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+/* Đặt nền trang */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Định dạng phần chính của trang */
+  section.vh-100 {
+    height: 100vh;
+    background-color: #f3f4f6;
+  }
+  
+  /* Định dạng card */
+  .card {
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    max-width: 1100px; /* Giới hạn chiều rộng card */
+    margin: 50px auto; /* Căn giữa card */
+  }
+  
+  /* Định dạng body của card */
+  .card-body {
+    padding: 40px;
+    flex: 1; /* Chiếm phần còn lại */
+  }
+  
+  /* Tiêu đề */
+  .text-center.h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  /* Định dạng form */
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-outline {
+    position: relative;
+  }
+  
+  .form-control {
+    height: 40px;
+    padding-left: 40px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+  }
+  
+  label.form-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    position: relative;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  /* Định dạng biểu tượng trong các input */
+  .fas {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #007bff;
+  }
+  
+  /* Thiết kế button đăng nhập */
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 100%; /* Đảm bảo button chiếm toàn bộ chiều rộng của form */
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .text-center h6 {
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+  
+  .text-center h6 a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .text-center h6 a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Phần container để kiểm soát hình ảnh */
+  .col-md-10.col-lg-6.col-xl-7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* Responsive Design: Điều chỉnh cho màn hình nhỏ */
+  @media (max-width: 768px) {
+    .card {
+      flex-direction: column; /* Chuyển sang bố cục dọc trên màn hình nhỏ */
+      max-width: 100%; /* Chiếm toàn bộ chiều rộng màn hình */
     }
-    .gradient-custom-4 {
-    /* fallback for old browsers */
-    background: #84fab0;
-    
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+  
+    .card-body {
+      padding: 20px;
     }
-    html,body {
-        font-family: Arial, sans-serif;
-       
-        padding: 0;
-        background-color: #ffffff;
-        height: 100%;
-        margin: 0;  /* Loại bỏ khoảng cách mặc định */
-        display: flex;
-        flex-direction: column;/* Phân chia không gian thành 2 phần: nội dung và footer */
-        
+  
+    .text-center.h1 {
+      font-size: 2rem;
     }
-.col-md-10col-lg-6col-xl-5order-2order-lg-1
-    {
-        display: flex;
-     justify-content: center; /* Căn giữa theo chiều ngang */
+  
+    .form-control {
+      font-size: 0.9rem;
     }
-    .col-lg-12col-xl-11{
-        display: flex;
-     justify-content: center; /* Căn giữa theo chiều ngang */
+  
+    .btn-primary {
+      font-size: 1rem;
     }
+  
+    .text-center h6 {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Hiệu ứng toggle password */
+  .password-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-password {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #007bff;
+  }
+  
+  .toggle-password:hover {
+    color: #0056b3;
+  }
+  
