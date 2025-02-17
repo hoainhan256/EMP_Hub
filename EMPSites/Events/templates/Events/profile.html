@@ -33,10 +33,6 @@
                         <th>Address</th>
                         <td>{{ address }}</td>
                     </tr>
-                    <tr>
-                        <th>Role</th>
-                        <td>{{ role }}</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -67,7 +63,11 @@
                     <td><img src="{{ reg.event.image.url }}" width="50"></td>
                     <td>
                         <td>
-                            <button class="btn btn-danger">Thanh Toán</button>
+                            {% if reg.is_paid %}
+                            <span class="text-success">Đã thanh toán</span>
+                        {% else %}
+                            <a href="{% url 'pay_event' reg.id %}" class="btn btn-danger">Thanh Toán</a>
+                        {% endif %}
                         </td>
                     </tr>
                     {% empty %}

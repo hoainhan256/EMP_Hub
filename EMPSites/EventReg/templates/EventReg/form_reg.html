@@ -63,44 +63,6 @@
         </div>
     </div>
 </div>
-<style>
-    .bg-blue-custom:hover {
-        background-color: #0b5ed7;
-        color: white;
-    }
-    .bg-blue-custom {
-        background-color:rgb(24, 131, 246);
-        color: white;
-      }
-    .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .btn-hover:hover {
-        transform: scale(1.05);
-        transition: all 0.3s ease;
-    }
-
-    .form-control:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-        transition: all 0.3s ease-in-out;
-    }
-</style>
-
 {% endblock %}
 {% block footer %}
     {%  include 'includes/footer.html' %}

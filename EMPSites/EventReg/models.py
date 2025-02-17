@@ -9,6 +9,7 @@ class EventRegistration(models.Model):
     address = models.TextField()
     role = models.CharField(max_length=50)
     registered_at = models.DateTimeField(auto_now_add=True)
+    is_paid = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.name} - {self.event.title}"
+        return f"{self.name} - {self.event.title} - {'Paid' if self.is_paid else 'Unpaid'}"
